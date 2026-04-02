@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>XTY Fire - Loyalty Subscriptions</title>
+  <style>
+    /* Reset */
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+      background: #f0f0f0;
+      color: #000;
+    }
+
+    .wrapper {
+      max-width: 600px;
+      margin: 0 auto;
+      background: #fff;
+    }
+
+    /* Hero Section */
+    .hero {
+      position: relative;
+      width: 100%;
+      height: 380px;
+      overflow: hidden;
+    }
+
+    .hero img {
+      width: 114%;
+      height: 121%;
+      object-fit: cover;
+      position: absolute;
+      top: -21%;
+      left: -9%;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to left, rgba(248, 0, 0, 0.7) 2%, rgb(146, 0, 0) 89%);
+      mix-blend-mode: multiply;
+    }
+
+    /* Hero Heading */
+    .hero-heading {
+      position: relative;
+      background: #000;
+      padding: 30px 44px 50px;
+      margin-top: -65px;
+      max-width: 426px;
+    }
+
+    .hero-heading h1 {
+      font-family: 'Georgia', 'Times New Roman', serif;
+      font-weight: 700;
+      font-size: 48px;
+      line-height: 1.12;
+      color: #fff;
+      text-transform: uppercase;
+      letter-spacing: -0.5px;
+    }
+
+    .hero-black-bar {
+      background: #000;
+      height: 220px;
+      width: 100%;
+      margin-top: -150px;
+      position: relative;
+      z-index: -1;
+    }
+
+    /* Letter Section */
+    .letter-section {
+      background: #fff;
+      padding: 50px 43px;
+    }
+
+    .letter-section p {
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: 16px;
+      line-height: 1.6;
+      color: #000;
+    }
+
+    .letter-section p + p {
+      margin-top: 12px;
+    }
+
+    /* Subscriptions Intro */
+    .subs-intro {
+      position: relative;
+      width: 100%;
+      height: 240px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      padding: 0 42px;
+    }
+
+    .subs-intro-bg {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+    }
+
+    .subs-intro-bg img {
+      width: 103%;
+      height: 172%;
+      object-fit: cover;
+      position: absolute;
+      top: -59%;
+      left: -3%;
+      transform: scaleY(-1);
+    }
+
+    .subs-intro-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to left, rgb(248, 0, 0) 0%, rgb(0, 0, 0) 75%);
+      mix-blend-mode: overlay;
+    }
+
+    .subs-intro h2 {
+      position: relative;
+      z-index: 1;
+      font-family: Georgia, 'Times New Roman', serif;
+      font-weight: 700;
+      font-size: 34px;
+      color: #fff;
+      max-width: 240px;
+      line-height: 1.2;
+    }
+
+    /* Pricing Section */
+    .pricing-section {
+      background: #000;
+      padding: 0 42px 50px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 40px;
+    }
+
+    .pricing-cards {
+      display: flex;
+      gap: 30px;
+      justify-content: center;
+      flex-wrap: wrap;
+      width: 100%;
+    }
+
+    .pricing-card {
+      background: #000;
+      border: 1px solid #fff;
+      border-radius: 16px;
+      width: 240px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 17px;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+
+    .pricing-card.premium {
+      border-color: #f80000;
+    }
+
+    .card-header {
+      width: 100%;
+    }
+
+    .card-title {
+      background: #fff;
+      padding: 29px 20px;
+      text-align: center;
+    }
+
+    .card-title h3 {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      font-weight: 500;
+      font-size: 26px;
+      color: #1a1a1a;
+      line-height: 1.2;
+    }
+
+    .premium .card-title {
+      background: #f80000;
+    }
+
+    .premium .card-title h3 {
+      color: #fff;
+    }
+
+    .card-price {
+      background: rgba(255, 255, 255, 0.24);
+      padding: 15px 20px;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 62px;
+    }
+
+    .premium .card-price {
+      background: rgba(248, 0, 0, 0.24);
+    }
+
+    .card-price .amount {
+      font-family: Georgia, 'Times New Roman', serif;
+      font-weight: 700;
+      font-size: 34px;
+      color: #fff;
+      line-height: 1;
+    }
+
+    .card-price .period {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      font-weight: 500;
+      font-size: 16px;
+      color: #fff;
+    }
+
+    .card-features {
+      text-align: center;
+      padding: 0 10px;
+    }
+
+    .card-features p {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      font-weight: 500;
+      font-size: 16px;
+      color: #fff;
+      line-height: 32px;
+    }
+
+    .card-cta {
+      width: 100%;
+      margin-top: auto;
+    }
+
+    .card-cta a {
+      display: block;
+      background: #fff;
+      padding: 11px 20px;
+      text-align: center;
+      font-family: Georgia, 'Times New Roman', serif;
+      font-weight: 700;
+      font-size: 16px;
+      color: #000;
+      text-decoration: underline;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .premium .card-cta a {
+      background: #f80000;
+      color: #fff;
+      text-decoration: none;
+      font-size: 20px;
+    }
+
+    .pricing-note {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      font-weight: 500;
+      font-size: 16px;
+      color: #fff;
+      line-height: 1.5;
+      max-width: 510px;
+      text-align: left;
+    }
+
+    .pricing-note .highlight {
+      color: #f80000;
+    }
+
+    /* Family Plans Section */
+    .family-section {
+      background: #ccc;
+      padding: 30px 42px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      align-items: center;
+    }
+
+    .family-section h2 {
+      font-family: Georgia, 'Times New Roman', serif;
+      font-weight: 700;
+      font-size: 34px;
+      color: #000;
+      line-height: 1.2;
+      position: relative;
+      display: inline-block;
+    }
+
+    .family-section h2::after {
+      content: '';
+      display: block;
+      width: 100%;
+      max-width: 326px;
+      height: 2px;
+      background: #000;
+      margin: 4px auto 0;
+    }
+
+    .family-section p {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      font-weight: 500;
+      font-size: 16px;
+      color: #000;
+      line-height: 1.5;
+    }
+
+    /* Red CTA Section */
+    .red-section {
+      background: #f80000;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      gap: 26px;
+      min-height: 350px;
+    }
+
+    .red-section-bg {
+      position: absolute;
+      inset: 0;
+      opacity: 0.15;
+    }
+
+    .red-section-image {
+      position: relative;
+      z-index: 1;
+      flex-shrink: 0;
+      width: 50%;
+      max-width: 302px;
+    }
+
+    .red-section-image img {
+      width: 100%;
+      height: 251px;
+      object-fit: cover;
+    }
+
+    .red-section-divider {
+      width: 4px;
+      height: 223px;
+      background: #fff;
+      flex-shrink: 0;
+      position: relative;
+      z-index: 1;
+    }
+
+    .red-section-text {
+      position: relative;
+      z-index: 1;
+      padding: 20px 20px 20px 0;
+    }
+
+    .red-section-text p {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      font-weight: 500;
+      font-size: 16px;
+      color: #fff;
+      line-height: 1.5;
+    }
+
+    .red-section-text a {
+      color: #fff;
+      text-decoration: underline;
+    }
+
+    /* Sign Off */
+    .signoff {
+      background: #fff;
+      padding: 30px 42px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .signoff p {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      font-weight: 500;
+      font-size: 16px;
+      color: #000;
+      line-height: 1.5;
+    }
+
+    .signoff .name {
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: 16px;
+      line-height: 1.5;
+    }
+
+    /* Footer */
+    .footer {
+      background: #000;
+      padding: 26px 42px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 11px;
+    }
+
+    .social-link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 79px;
+      height: 34px;
+      border: 0.75px solid #d9d9d9;
+    }
+
+    .social-link svg {
+      width: 18px;
+      height: 18px;
+      fill: #fff;
+    }
+
+    .footer p {
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: 12px;
+      color: #fff;
+      line-height: 1.4;
+      letter-spacing: 0.053px;
+    }
+
+    .footer a {
+      color: #f80000;
+      text-decoration: underline;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      font-weight: 500;
+      font-size: 12px;
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      .hero {
+        height: 280px;
+      }
+
+      .hero-heading {
+        max-width: 100%;
+        padding: 20px 24px 30px;
+      }
+
+      .hero-heading h1 {
+        font-size: 36px;
+      }
+
+      .letter-section {
+        padding: 30px 24px;
+      }
+
+      .subs-intro {
+        height: 200px;
+        padding: 0 24px;
+      }
+
+      .subs-intro h2 {
+        font-size: 28px;
+      }
+
+      .pricing-section {
+        padding: 0 16px 40px;
+        gap: 30px;
+      }
+
+      .pricing-cards {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+      }
+
+      .pricing-card {
+        width: 100%;
+        max-width: 300px;
+      }
+
+      .pricing-note {
+        font-size: 14px;
+        padding: 0 8px;
+      }
+
+      .family-section {
+        padding: 24px 20px;
+      }
+
+      .family-section h2 {
+        font-size: 26px;
+      }
+
+      .red-section {
+        flex-direction: column;
+        gap: 0;
+        min-height: auto;
+      }
+
+      .red-section-image {
+        width: 100%;
+        max-width: 100%;
+      }
+
+      .red-section-image img {
+        width: 100%;
+        height: 220px;
+      }
+
+      .red-section-divider {
+        display: none;
+      }
+
+      .red-section-text {
+        padding: 20px 24px 30px;
+      }
+
+      .signoff {
+        padding: 24px 20px;
+      }
+
+      .footer {
+        padding: 20px 16px;
+      }
+    }
+
+    @media (max-width: 400px) {
+      .hero-heading h1 {
+        font-size: 28px;
+      }
+
+      .subs-intro h2 {
+        font-size: 24px;
+      }
+
+      .family-section h2 {
+        font-size: 22px;
+      }
+
+      .card-title h3 {
+        font-size: 22px;
+      }
+
+      .card-price .amount {
+        font-size: 28px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="wrapper">
+
+  <!-- Hero Section -->
+  <div class="hero">
+    <img src="https://www.figma.com/api/mcp/asset/1ba318ad-db6f-494a-a912-ed65c1596e17" alt="Squash player in action">
+    <div class="hero-overlay"></div>
+  </div>
+
+  <!-- Hero Heading -->
+  <div class="hero-heading">
+    <h1>Experience One of America's Fastest-Growing Sports</h1>
+  </div>
+  <div class="hero-black-bar"></div>
+
+  <!-- Letter Section -->
+  <div class="letter-section">
+    <p>Dear Fire Community,</p>
+    <p>Over the years, XTY.fire has grown spectacularly, with our community embracing both the sport and our unique pay-to-play model. As we continue to grow together, we are proud of the vibrant squash community which has been made possible with your support and passion.</p>
+  </div>
+
+  <!-- Subscriptions Intro -->
+  <div class="subs-intro">
+    <div class="subs-intro-bg">
+      <img src="https://www.figma.com/api/mcp/asset/a610e687-caf1-4883-a7c7-c5e144f92aa1" alt="Squash background">
+      <div class="subs-intro-overlay"></div>
+    </div>
+    <h2>Introducing Loyalty Subscriptions</h2>
+  </div>
+
+  <!-- Pricing Section -->
+  <div class="pricing-section">
+
+    <div class="pricing-cards">
+      <!-- Premium Card -->
+      <div class="pricing-card premium">
+        <div class="card-header">
+          <div class="card-title">
+            <h3>Premium<br>Subscription</h3>
+          </div>
+          <div class="card-price">
+            <span class="amount">$390</span><span class="period">/Month</span>
+          </div>
+        </div>
+        <div class="card-features">
+          <p>6 Play Credits</p>
+          <p>4 Off Peak Play Credits</p>
+          <p>2 Round Robin Credits</p>
+          <p>1 Lesson Credit</p>
+          <p>1 Clinic Credit</p>
+          <p>21 Days Booking Window</p>
+          <p>15% Discount on Bookings</p>
+        </div>
+        <div class="card-cta">
+          <a href="#">SELECT PREMIER</a>
+        </div>
+      </div>
+
+      <!-- Active Player Card -->
+      <div class="pricing-card">
+        <div class="card-header">
+          <div class="card-title">
+            <h3>Active Player</h3>
+          </div>
+          <div class="card-price">
+            <span class="amount">$290</span><span class="period">/Month</span>
+          </div>
+        </div>
+        <div class="card-features">
+          <p>4 Play Credits</p>
+          <p>4 Off Peak Play Credits</p>
+          <p>1 Round Robin Credit</p>
+          <p>1 Lesson Credit</p>
+          <p>1 Clinic Credit</p>
+          <p>21 Days Booking Window</p>
+          <p>10% Discount on Bookings</p>
+        </div>
+        <div class="card-cta">
+          <a href="#">SELECT ACTIVE PLAYER</a>
+        </div>
+      </div>
+    </div>
+
+    <p class="pricing-note">
+      These plans require an initial three-month commitment and can be canceled anytime thereafter. Subscriptions will be available before April 1st, with <span class="highlight">limited availability of only 100 spots</span> through January 1, 2026.
+    </p>
+  </div>
+
+  <!-- Family Plans Section -->
+  <div class="family-section">
+    <h2>Family Plans Under Review</h2>
+    <p>We've heard your requests for family-friendly options and are actively exploring plans to suit families. Stay tuned for updates.</p>
+  </div>
+
+  <!-- Red CTA Section -->
+  <div class="red-section">
+    <div class="red-section-image">
+      <img src="https://www.figma.com/api/mcp/asset/d9b03eef-ee49-4004-8ef0-1a50c6b2c2dc" alt="Junior squash player">
+    </div>
+    <div class="red-section-divider"></div>
+    <div class="red-section-text">
+      <p>We're excited to continue providing the best squash experience in D.C. while keeping affordability and access at the heart of what we do. For any questions or details on pricing, feel free to reach out<br><a href="#">we're here to help!</a></p>
+    </div>
+  </div>
+
+  <!-- Sign Off -->
+  <div class="signoff">
+    <p>Thank you for being part of this incredible community,</p>
+    <div class="name">
+      <p>John Doe</p>
+      <p>Executive Director</p>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <div class="social-links">
+      <a href="#" class="social-link">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 2.04c-5.5 0-9.96 4.46-9.96 9.96 0 4.41 3.6 8.13 8.24 9.49v-6.72H7.9v-2.77h2.38V9.85c0-2.36 1.4-3.66 3.54-3.66 1.03 0 2.1.18 2.1.18v2.32h-1.18c-1.17 0-1.53.72-1.53 1.47v1.76h2.6l-.42 2.77h-2.18v6.72c4.64-1.36 8.24-5.08 8.24-9.49 0-5.5-4.46-9.96-9.96-9.96z"/>
+        </svg>
+      </a>
+      <a href="#" class="social-link">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6m9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8 1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3z"/>
+        </svg>
+      </a>
+    </div>
+    <p>XTYC &middot; 2233 M Street NW &middot; Washington, DC 20037 &middot; USA</p>
+    <p>Telephone 202-241-2233</p>
+    <a href="#">Unsubscribe</a>
+  </div>
+
+</div>
+
+</body>
+</html>
