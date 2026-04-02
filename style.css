@@ -1,0 +1,583 @@
+/* Reset & Base */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: #1a1a1a;
+  color: #000;
+  display: flex;
+  justify-content: center;
+}
+
+.wrapper {
+  width: 100%;
+  max-width: 600px;
+  background: #fff;
+}
+
+/* ========================
+   Hero Section
+   ======================== */
+.hero {
+  position: relative;
+  width: 100%;
+  min-height: 500px;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+}
+
+.hero-bg {
+  position: absolute;
+  top: -20%;
+  left: -8%;
+  width: 114%;
+  height: 121%;
+  object-fit: cover;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to left, rgba(248, 0, 0, 0.7) 2%, rgb(146, 0, 0) 89%);
+  mix-blend-mode: multiply;
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  padding: 30px 44px 50px;
+}
+
+.hero-content h1 {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 600;
+  font-size: 52px;
+  line-height: 1.12;
+  color: #fff;
+}
+
+/* ========================
+   Letter Section
+   ======================== */
+.letter {
+  padding: 50px 43px;
+  background: #fff;
+}
+
+.letter p {
+  font-family: 'Lora', serif;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #000;
+  margin-bottom: 12px;
+}
+
+.letter p:last-child {
+  margin-bottom: 0;
+}
+
+/* ========================
+   Subscriptions Section
+   ======================== */
+.subscriptions {
+  background: #000;
+  padding-bottom: 50px;
+}
+
+.subscriptions-header {
+  position: relative;
+  height: 240px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  padding: 0 42px;
+}
+
+.subscriptions-header-bg {
+  position: absolute;
+  inset: 0;
+  width: 103%;
+  height: 172%;
+  object-fit: cover;
+  transform: rotate(180deg) scaleY(-1);
+  top: -59%;
+  left: -3%;
+}
+
+.subscriptions-header-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to left, rgb(248, 0, 0) 0%, rgb(0, 0, 0) 75%);
+  mix-blend-mode: overlay;
+}
+
+.subscriptions-title {
+  position: relative;
+  z-index: 1;
+  font-family: 'Oswald', sans-serif;
+  font-weight: 600;
+  font-size: 34px;
+  color: #fff;
+  max-width: 234px;
+  line-height: 1.2;
+}
+
+/* Pricing Cards */
+.pricing-cards {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  padding: 40px 20px 0;
+  flex-wrap: wrap;
+}
+
+.card {
+  width: 240px;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 17px;
+  overflow: hidden;
+  height: 470px;
+}
+
+.card-premium {
+  border: 1px solid #f80000;
+  background: #000;
+}
+
+.card-active {
+  border: 1px solid #fff;
+  background: #000;
+}
+
+.card-header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 95px;
+  padding: 13px 20px;
+}
+
+.card-header-red {
+  background: #f80000;
+}
+
+.card-header-white {
+  background: #fff;
+}
+
+.card-plan-name {
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: 26px;
+  line-height: 1.23;
+  color: #fff;
+  text-align: center;
+}
+
+.card-plan-name-dark {
+  color: #1a1a1a;
+}
+
+.card-price {
+  width: 100%;
+  height: 62px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-price-red {
+  background: rgba(248, 0, 0, 0.24);
+}
+
+.card-price-white {
+  background: rgba(255, 255, 255, 0.24);
+}
+
+.price-amount {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 600;
+  font-size: 34px;
+  line-height: 32px;
+  color: #fff;
+}
+
+.price-period {
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 32px;
+  color: #fff;
+}
+
+.card-features {
+  list-style: none;
+  text-align: center;
+  flex: 1;
+}
+
+.card-features li {
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 32px;
+  color: #fff;
+}
+
+.card-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 55px;
+  font-family: 'Oswald', sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  text-decoration: none;
+  text-align: center;
+  border-radius: 0 0 15px 15px;
+}
+
+.card-btn-red {
+  background: #f80000;
+  color: #fff;
+}
+
+.card-btn-white {
+  background: #fff;
+  color: #000;
+  font-size: 16px;
+  text-decoration: underline;
+}
+
+/* Subscriptions Note */
+.subscriptions-note {
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #fff;
+  padding: 40px 45px 0;
+}
+
+.subscriptions-note .highlight {
+  color: #f80000;
+}
+
+/* ========================
+   Family Plans Section
+   ======================== */
+.family-plans {
+  background: #ccc;
+  padding: 30px 42px;
+  text-align: center;
+}
+
+.family-plans h2 {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 600;
+  font-size: 34px;
+  color: #000;
+  margin-bottom: 4px;
+}
+
+.underline-decoration {
+  width: 326px;
+  max-width: 100%;
+  height: 2px;
+  background: #000;
+  margin: 0 auto 20px;
+}
+
+.family-plans p {
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #000;
+}
+
+/* ========================
+   CTA Section
+   ======================== */
+.cta-section {
+  position: relative;
+  height: 350px;
+  overflow: hidden;
+}
+
+.cta-bg-color {
+  position: absolute;
+  inset: 0;
+  background: #f80000;
+}
+
+.cta-pattern {
+  position: absolute;
+  top: 18px;
+  left: -52px;
+  width: 665px;
+  height: 350px;
+  transform: rotate(180deg);
+  opacity: 0.3;
+}
+
+.cta-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: 26px;
+  height: 100%;
+  padding: 0 20px;
+}
+
+.cta-image-wrapper {
+  position: relative;
+  flex-shrink: 0;
+  width: 302px;
+  height: 251px;
+}
+
+.cta-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.cta-divider {
+  position: absolute;
+  right: 0;
+  top: 14px;
+  width: 16px;
+  height: 223px;
+  background: #fff;
+}
+
+.cta-text {
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #fff;
+  max-width: 212px;
+}
+
+.cta-link {
+  color: #fff;
+  text-decoration: underline;
+  font-size: 16px;
+  line-height: 30px;
+}
+
+/* ========================
+   Sign Off
+   ======================== */
+.sign-off {
+  background: #fff;
+  padding: 30px 42px;
+  text-align: center;
+}
+
+.sign-off > p {
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #000;
+  margin-bottom: 20px;
+}
+
+.signature p {
+  font-family: 'Lora', serif;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #000;
+}
+
+/* ========================
+   Footer
+   ======================== */
+.footer {
+  background: #000;
+  padding: 26px 42px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.social-icons {
+  display: flex;
+  gap: 11px;
+}
+
+.social-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 79px;
+  height: 34px;
+  border: 0.75px solid #d9d9d9;
+  background: transparent;
+}
+
+.social-btn img {
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+}
+
+.footer-address,
+.footer-phone {
+  font-family: 'Lora', serif;
+  font-size: 12px;
+  line-height: 1.4;
+  letter-spacing: 0.053px;
+  color: #fff;
+  text-align: center;
+}
+
+.footer-unsubscribe {
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.4;
+  letter-spacing: 0.053px;
+  color: #f80000;
+  text-decoration: underline;
+  text-align: center;
+}
+
+/* ========================
+   Responsive Styles
+   ======================== */
+@media (max-width: 600px) {
+  .hero {
+    min-height: 400px;
+  }
+
+  .hero-content h1 {
+    font-size: 36px;
+    line-height: 1.15;
+  }
+
+  .hero-content {
+    padding: 20px 24px 40px;
+  }
+
+  .letter {
+    padding: 35px 24px;
+  }
+
+  .pricing-cards {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 30px 16px 0;
+  }
+
+  .card {
+    width: 100%;
+    max-width: 280px;
+    height: auto;
+  }
+
+  .card-features {
+    padding: 0 10px;
+  }
+
+  .subscriptions-header {
+    padding: 0 24px;
+  }
+
+  .subscriptions-title {
+    font-size: 28px;
+  }
+
+  .subscriptions-note {
+    padding: 30px 24px 0;
+    font-size: 14px;
+  }
+
+  .family-plans {
+    padding: 24px 20px;
+  }
+
+  .family-plans h2 {
+    font-size: 28px;
+  }
+
+  .cta-section {
+    height: auto;
+    min-height: 350px;
+  }
+
+  .cta-content {
+    flex-direction: column;
+    padding: 30px 20px;
+    gap: 20px;
+  }
+
+  .cta-image-wrapper {
+    width: 100%;
+    max-width: 302px;
+    height: 200px;
+  }
+
+  .cta-text {
+    max-width: 100%;
+    text-align: center;
+  }
+
+  .sign-off {
+    padding: 24px 20px;
+  }
+
+  .footer {
+    padding: 20px 20px;
+  }
+
+  .card-btn {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 400px) {
+  .hero-content h1 {
+    font-size: 28px;
+  }
+
+  .letter p {
+    font-size: 14px;
+  }
+
+  .card {
+    max-width: 100%;
+  }
+
+  .subscriptions-title {
+    font-size: 24px;
+  }
+
+  .family-plans h2 {
+    font-size: 24px;
+  }
+
+  .cta-image-wrapper {
+    height: 160px;
+  }
+}
